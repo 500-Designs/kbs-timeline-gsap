@@ -133,7 +133,7 @@
   }
   
   #draggable>svg {
-  width: 100vw;
+  width: 90vw;
   height: 100%;
   }
   
@@ -229,16 +229,40 @@
       line-height: 65px;
       text-align: center;
       letter-spacing: -1.66667px;
-    }
-    #top-42-hover-2 .latest-revenue {
+  }
+  #top-42-hover-2 .latest-revenue {
        font-family: 'EB Garamond';
       font-style: normal;
       font-weight: 400;
       font-size: 34px;
       text-align: center;
       letter-spacing: -1.66667px;
-    }
-  
+  }
+
+  #buttonWrap {
+    width: auto;
+    height: 100%;
+    right: 30px;
+    bottom: 40%;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: end;
+  }
+
+  #chartBtn {
+    border: 1px solid #0C9AA3;
+    display: none;
+    color: #0C9AA3;
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  #chartBtn:hover, #chartBtn:focus, #chartBtn:active {
+    background-color: #0C9AA3;
+    color: white;
+  }
+    
   @media only screen and (min-width: 1024px) and (max-width: 1400px) {
   
   .title {
