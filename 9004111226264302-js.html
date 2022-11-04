@@ -360,6 +360,13 @@
                     }
                   });
                 }
+
+                if (activeSlide === lastSlide) {
+                  jQuery('#chartBtn').fadeIn();
+                } else {
+                  jQuery('#chartBtn').fadeOut();
+                }
+                
               }
   
               // graph animation from narrow to wide
@@ -644,8 +651,13 @@
                       pointerEvents: "none"
                     }
                   });
-                  master.timeScale(2).reverse();
-                  scaleGraph.timeScale(2).reverse();
+                  // master.timeScale(-2).reverse();
+                  // scaleGraph.timeScale(2).reverse();
+                  master.play(0);
+                  setTimeout(function(){  
+                    jQuery(svgContainer).attr('viewBox', '0 200 1892 1169');
+                    jQuery('#chartBtn').fadeOut();
+                  }, 1000);
                 });
   
   
