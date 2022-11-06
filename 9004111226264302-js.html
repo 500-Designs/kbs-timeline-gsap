@@ -11,7 +11,7 @@
             const container = document.getElementById("draggable");
             const svgContainer = document.querySelector("#draggable > svg");
             const startBtn = document.querySelector(".chart-call-to-action");
-            const stopBtn = document.querySelector(".stopBtn");
+            const stopBtn = document.querySelector("#chartBtn");
             const introGraph = document.querySelector("#intro-graph");
             const graphNarrow = document.querySelector("#graph-narrow");
             const graphHotspot = document.querySelector("#graph-hotspot");
@@ -214,7 +214,10 @@
   
               function slideAnim(e) {
                 oldSlide = activeSlide;
-  
+                if (activeSlide !== 0) {
+                  jQuery('#top-wrap .slide-0').css({ opacity: 0, visibility: "hidden"  });
+                }
+
                 if (this.id === "dragger") {
                   let snapDragg = gsap.utils.snap(offsetValue, this.endX);
                   console.log(snapDragg);
@@ -653,11 +656,17 @@
                   });
                   // master.timeScale(-2).reverse();
                   // scaleGraph.timeScale(2).reverse();
-                  master.play(0);
                   setTimeout(function(){  
                     jQuery(svgContainer).attr('viewBox', '0 200 1892 1169');
                     jQuery('#chartBtn').fadeOut();
-                  }, 1000);
+                    master.play(0);
+                    console.log('master reset');
+                  }, 300);
+                  setTimeout(function(){  
+                    jQuery('#top-wrap .slide:not(.slide-0)').css({ opacity: 0, visibility: "hidden"  });
+                    jQuery('#top-wrap .slide-0').css({ opacity: 1, visibility: "visible"  });
+                    console.log('show slide-0');
+                  }, 500);
                 });
   
   
